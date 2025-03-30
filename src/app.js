@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
 import compression from "compression";
+import { checkOverload, countConnect } from "./helpers/check.connect.js";
 
 const app = express();
 
@@ -12,6 +13,8 @@ app.use(compression());
 app.use(express.json());
 
 // init db
+import "./dbs/init.mongodb.js";
+checkOverload();
 
 // init routes
 
